@@ -11,10 +11,9 @@ INVALID_RANGE = 'El numero esta fuera del rango permitido.'
 
 ##############################################[  MAIN  ]##############################################
 
-class ShroomSerializer(serializers.ModelSerializer):
+class ListShroomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shroom
-        fields = '__all__'
 
     def to_representation(self, instance):
         return {

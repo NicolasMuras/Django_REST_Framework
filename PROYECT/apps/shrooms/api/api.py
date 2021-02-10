@@ -14,12 +14,12 @@ def shroom_api_view(request):
     # List all shrooms
     if request.method == 'GET':
         shrooms = Shroom.objects.all().values('id', 'specie', 'days', 'cap_color', 'trunk_color')
-        shroom_serializer = ShroomSerializer(shrooms, many = True)
+        shroom_serializer = ListShroomSerializer(shrooms, many = True)
         return Response(shroom_serializer.data, status = status.HTTP_200_OK)
 
     # Create
     elif request.method == 'POST':
-        shroom_serializer = ShroomSerializer(data = request.data)
+        shroom_serializer = CreateShroomSerializer(data = request.data)
 
         # Validation
         if shroom_serializer.is_valid():
