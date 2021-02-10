@@ -109,7 +109,7 @@ PROYECT
    </td>
   </tr>
   <tr>
-   <td><strong>secret</strong>
+   <td><strong>password</strong>
    </td>
    <td>CharField(max_length=10, unique = True, blank = False, null = False)
    </td>
