@@ -28,7 +28,9 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
+    'apps.base',
     'apps.shrooms',
+    'apps.trees',
 ]
 
 THIRD_APPS = [
