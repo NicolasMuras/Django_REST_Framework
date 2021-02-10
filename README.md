@@ -12,7 +12,7 @@
 
 <h2><a id="user-content-introduccion-al-proyecto" class="anchor" aria-hidden="true" href="#introduccion-al-proyecto"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Introduccion al proyecto</h2>
 
-Bueno, la idea es generar un backend modulable y escalable con Django REST Framework, elegí la temática de la naturaleza por que encaja perfectamente con el concepto, mi idea es crear un escenario completamente modular, donde los elementos no dependan uno de los otros, a la vez iré probando conceptos nuevos con cada modulo añadido, la idea es también que este programa sirva como 'Cookbook', una guía donde cualquier persona pueda ver el concepto de cada metodología en una forma simple.
+La idea es generar una API modulable y escalable con Django REST Framework, elegí la temática de la naturaleza por que encaja perfectamente con el concepto, mi idea es crear un escenario completamente modular, donde los elementos no dependan uno de los otros, a la vez iré probando conceptos nuevos con cada modulo añadido, la idea es también que este programa sirva como 'Cookbook', una guía donde cualquier persona pueda ver el concepto de cada metodología en una forma simple.
 
 <h2><a id="user-content-implementación-del-proyecto" class="anchor" aria-hidden="true" href="#implementación-del-proyecto"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Implementación del proyecto</h2>
 <ul>
@@ -24,15 +24,14 @@ Bueno, la idea es generar un backend modulable y escalable con Django REST Frame
 <li><strong>virtualenv</strong>: Recomiendo utilizar entornos virtuales, nos hace la vida mas facil :D.</li>
 </ul>
 
-Se empieza definiendo una estructura solida para el proyecto, la idea es organizarse bien desde el comienzo al encarar un proyecto que pretende ser escalable, creamos una carpeta apps, en ella estará cada elemento de nuestro escenario, empecé por algo simple "Shroom", las partes fundamentales son: modules.py, serializers.py, api.py y urls.py.
-Comienzo definiendo el modelo, luego paso a serializer.py donde empiezo construyendo un serializador simple que permitirá ejecutar el primer testeo, seguido: api.py, configuro las request y al final defino la ruta correspondiente para hacer la request en el archivo urls.py. Luego: Refactoring.
+Se empieza definiendo una estructura solida para el proyecto, la idea es organizarse bien desde el comienzo al encarar un proyecto que pretende ser escalable, dividir las tareas va a ser una parte fundamental, cada modulo (objeto) cuenta con sus modelos, serializadores y endpoints, utilizo el principio de abstracción para también crear serializadores abstractos de los cuales un objeto pueda heredar sus características, mi idea es crear objetos simbólicos, en los cuales pueda probar diferentes métodos y funciones de REST Framework, ahora mismo el proyecto esta en sus primeras fases, mas adelante intentare trabajar de una forma mínima la parte del front-end.
 
 <h3>Aspectos que considero importantes:</h3>
 <ul>
 <li><strong>Definir serializadores para cada función CRUD. Nos permitira tener un software mas escalable.</strong></li>
 <li><strong>La estructura del proyecto tiene que ser consistente desde el comienzo, ayudara a la comprension del programa.</strong></li>
 <li><strong>Separar la logica de la parte de las request, es preferible que los serializers se encarguen de eso.</strong></li>
-<li><strong>Heredar de modelos abstractos, nos permiten una mejor escalabilidad y reutilización del código.</strong></li>
+<li><strong>Heredar de modelos y serializadores abstractos, nos permiten una mejor escalabilidad y reutilización del código.</strong></li>
 </ul>
 
 <h3>Estructura del proyecto:</h3>
