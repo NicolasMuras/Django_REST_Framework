@@ -1,9 +1,6 @@
 from rest_framework import generics
-from apps.trees.models import DamageIndicator, TreeFamily
-from apps.trees.api.serializers.general_serializers import TreeFamilySerializer, DamageIndicatorSerializer
+from apps.base.api import GeneralListApiView
+from apps.trees.api.serializers.general_serializers import TreeFamilySerializer
 
-class TreeFamilyListAPIView(generics.ListAPIView):
+class TreeFamilyListAPIView(GeneralListApiView):
     serializer_class = TreeFamilySerializer
-
-    def get_queryset(self):
-        return TreeFamily.objects.filter(state = True)

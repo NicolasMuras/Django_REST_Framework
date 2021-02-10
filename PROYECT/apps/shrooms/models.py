@@ -25,8 +25,8 @@ class Shroom(AbstractBaseUser, models.Model):
     objects = ShroomManager()
 
     class Meta:
-        verbose_name = 'Specimen'
-        verbose_name_plural = 'Specimens'
+        verbose_name = 'Specie'
+        verbose_name_plural = 'Species'
 
     def natural_key(self):
         return (self.specie)
