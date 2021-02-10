@@ -21,6 +21,7 @@ Bueno, la idea es generar un backend modulable y escalable con Django REST Frame
 <li><strong>Django REST</strong>: Es una aplicación de django que nos permitira contruir el proyecto bajo la arquitectura REST.</li>
 <li><strong>django-simple-history</strong>: Guarda el estado del modelo Django en cada create/update/delete.</li>
 <li><strong>Insomnia</strong>: Utilizo insomnia para ir testeando la aplicación mediante requests a medida que avanzo.</li>
+<li><strong>virtualenv</strong>: Recomiendo utilizar entornos virtuales, nos hace la vida mas facil :D.</li>
 </ul>
 
 Se empieza definiendo una estructura solida para el proyecto, la idea es organizarse bien desde el comienzo al encarar un proyecto que pretende ser escalable, creamos una carpeta apps, en ella estará cada elemento de nuestro escenario, empecé por algo simple "Shroom", las partes fundamentales son: modules.py, serializers.py, api.py y urls.py.
