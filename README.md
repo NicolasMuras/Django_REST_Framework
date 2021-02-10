@@ -21,14 +21,18 @@ Bueno, la idea es generar un backend modulable y escalable con Django REST Frame
 <li><strong>Insomnia</strong>: Utilizo insomnia para ir testeando la aplicación mediante requests a medida que avanzo.</li>
 </ul>
 
-Se empieza definiendo una estructura solida para el proyecto, la idea es organizarse bien desde el comienzo al encarar un proyecto que pretende ser escalable, creamos una carpeta apps, en ella estara cada elemento de nuestro escenario, empece por algo simple "Shroom", las partes fundamentales son: modules.py, serializers.py, api.py y urls.py.
-Comienzo definiendo el modelo, luego paso a serializer.py donde empiezo construyendo un serializador simple que permitira ejecutar el primer testeo, seguido: api.py, configuro las request y al final defino la ruta correspondiente para hacer la request en el archivo urls.py. Luego: Refactoring.
-Aspectos que considero importantes:
+Se empieza definiendo una estructura solida para el proyecto, la idea es organizarse bien desde el comienzo al encarar un proyecto que pretende ser escalable, creamos una carpeta apps, en ella estará cada elemento de nuestro escenario, empecé por algo simple "Shroom", las partes fundamentales son: modules.py, serializers.py, api.py y urls.py.
+Comienzo definiendo el modelo, luego paso a serializer.py donde empiezo construyendo un serializador simple que permitirá ejecutar el primer testeo, seguido: api.py, configuro las request y al final defino la ruta correspondiente para hacer la request en el archivo urls.py. Luego: Refactoring.
+
+<h3>Aspectos que considero importantes:</h3>
 <ul>
 <li><strong>Definir serializadores para cada función CRUD. Nos permitira tener un software mas escalable.</strong></li>
 <li><strong>La estructura del proyecto tiene que ser consistente desde el comienzo, ayudara a la comprension del programa.</strong></li>
 <li><strong>Separar la logica de la parte de las request, es preferible que los serializers se encarguen de eso.</strong></li>
 </ul>
+
+<h3>Estructura del proyecto:</h3>
+
 <pre>
 PROYECT
 │   manage.py
@@ -36,39 +40,21 @@ PROYECT
 ├───apps
 │   │   __init__.py
 │   │
-│   ├───shrooms
-│   │   │   admin.py
-│   │   │   apps.py
-│   │   │   models.py
-│   │   │   __init__.py
-│   │   │
-│   │   ├───api
-│   │   │   │   api.py
-│   │   │   │   serializers.py
-│   │   │   │   urls.py
-│   │   │   │
-│   │   │   └───__pycache__
-│   │   │           api.cpython-39.pyc
-│   │   │           serializers.cpython-39.pyc
-│   │   │           urls.cpython-39.pyc
-│   │   │
-│   │   ├───migrations
-│   │   │   │   0001_initial.py
-│   │   │   │   0002_shroom_secret.py
-│   │   │   │   __init__.py
-│   │   │   │
-│   │   │   └───__pycache__
-│   │   │           0001_initial.cpython-39.pyc
-│   │   │           0002_shroom_secret.cpython-39.pyc
-│   │   │           __init__.cpython-39.pyc
-│   │   │
-│   │   └───__pycache__
-│   │           admin.cpython-39.pyc
-│   │           models.cpython-39.pyc
-│   │           __init__.cpython-39.pyc
-│   │
-│   └───__pycache__
-│           __init__.cpython-39.pyc
+│   └───shrooms
+│       │   admin.py
+│       │   apps.py
+│       │   models.py
+│       │   __init__.py
+│       │
+│       ├───api
+│       │       api.py
+│       │       serializers.py
+│       │       urls.py
+│       │
+│       └───migrations
+│               0001_initial.py
+│               0002_shroom_secret.py
+│               __init__.py
 │
 └───PROYECT
     │   asgi.py
@@ -77,19 +63,9 @@ PROYECT
     │   wsgi.py
     │   __init__.py
     │
-    ├───settings
-    │   │   base.py
-    │   │   local.py
-    │   │   production.py
-    │   │   __init__.py
-    │   │
-    │   └───__pycache__
-    │           base.cpython-39.pyc
-    │           local.cpython-39.pyc
-    │           __init__.cpython-39.pyc
-    │
-    └───__pycache__
-            urls.cpython-39.pyc
-            wsgi.cpython-39.pyc
-            __init__.cpython-39.pyc
+    └───settings
+            base.py
+            local.py
+            production.py
+            __init__.py
 </pre>
