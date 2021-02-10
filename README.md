@@ -29,3 +29,67 @@ Aspectos que considero importantes:
 <li><strong>La estructura del proyecto tiene que ser consistente desde el comienzo, ayudara a la comprension del programa.</strong></li>
 <li><strong>Separar la logica de la parte de las request, es preferible que los serializers se encarguen de eso.</strong></li>
 </ul>
+<pre>
+PROYECT
+│   manage.py
+│
+├───apps
+│   │   __init__.py
+│   │
+│   ├───shrooms
+│   │   │   admin.py
+│   │   │   apps.py
+│   │   │   models.py
+│   │   │   __init__.py
+│   │   │
+│   │   ├───api
+│   │   │   │   api.py
+│   │   │   │   serializers.py
+│   │   │   │   urls.py
+│   │   │   │
+│   │   │   └───__pycache__
+│   │   │           api.cpython-39.pyc
+│   │   │           serializers.cpython-39.pyc
+│   │   │           urls.cpython-39.pyc
+│   │   │
+│   │   ├───migrations
+│   │   │   │   0001_initial.py
+│   │   │   │   0002_shroom_secret.py
+│   │   │   │   __init__.py
+│   │   │   │
+│   │   │   └───__pycache__
+│   │   │           0001_initial.cpython-39.pyc
+│   │   │           0002_shroom_secret.cpython-39.pyc
+│   │   │           __init__.cpython-39.pyc
+│   │   │
+│   │   └───__pycache__
+│   │           admin.cpython-39.pyc
+│   │           models.cpython-39.pyc
+│   │           __init__.cpython-39.pyc
+│   │
+│   └───__pycache__
+│           __init__.cpython-39.pyc
+│
+└───PROYECT
+    │   asgi.py
+    │   db.sqlite3
+    │   urls.py
+    │   wsgi.py
+    │   __init__.py
+    │
+    ├───settings
+    │   │   base.py
+    │   │   local.py
+    │   │   production.py
+    │   │   __init__.py
+    │   │
+    │   └───__pycache__
+    │           base.cpython-39.pyc
+    │           local.cpython-39.pyc
+    │           __init__.cpython-39.pyc
+    │
+    └───__pycache__
+            urls.cpython-39.pyc
+            wsgi.cpython-39.pyc
+            __init__.cpython-39.pyc
+</pre>
