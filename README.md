@@ -1,4 +1,4 @@
-<h1> Django REST: Naturaleza </h1>
+<h1> Django REST: Nature </h1>
 
 ![alt text](https://github.com/NicolasMuras/Django_REST_Nature/blob/main/images/elements.jpg?raw=true)
 
