@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from apps.shrooms.models import Shroom
-from apps.shrooms.api.serializers import ShroomSerializer
+from apps.shrooms.api.serializers import ListShroomSerializer
 from apps.shrooms.api.serializers import DetailShroomSerializer
 from apps.shrooms.api.serializers import CreateShroomSerializer
 from apps.shrooms.api.serializers import UpdateShroomSerializer

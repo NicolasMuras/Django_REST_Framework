@@ -3,7 +3,7 @@ from apps.shrooms.models import Shroom
 
 #############################################[  GLOBALS  ]############################################
 
-colors = ['Red', 'Orange', 'Blue', 'Yellow', 'White', 'Green', 'Gray', 'Black', 'Cyan']
+colors = ['Red', 'Orange', 'Blue', 'Yellow', 'White', 'Green', 'Gray', 'Black', 'Cyan', 'Brown']
 BLANK_SPACE = 'Espacio vacio.'
 INVALID_COLOR = 'Color invalido.'
 INVALID_SPECIE = 'Especie invalida.'
@@ -39,7 +39,7 @@ class CreateShroomSerializer(serializers.Serializer):
     days = serializers.IntegerField()
     cap_color = serializers.CharField(max_length=20)
     trunk_color = serializers.CharField(max_length=20)
-    secret = serializers.CharField(max_length=10)
+    password = serializers.CharField(max_length=10)
 
     def validate_specie(self, value):
         # custom validation
@@ -72,7 +72,10 @@ class CreateShroomSerializer(serializers.Serializer):
         return data
 
     def create(self, validated_data):
-        return Shroom.objects.create(**validated_data)
+        shroom = Shroom(**validated_data)
+        shroom.set_password(validated_data['password'])
+        shroom.save()
+        return shroom
 
 ##############################################[ UPDATE ]##############################################
 
@@ -82,7 +85,7 @@ class UpdateShroomSerializer(serializers.Serializer):
     days = serializers.IntegerField()
     cap_color = serializers.CharField(max_length=20)
     trunk_color = serializers.CharField(max_length=20)
-    secret = serializers.CharField(max_length=10)
+    password = serializers.CharField(max_length=10)
 
     def validate_specie(self, value):
         if value == '':
@@ -114,10 +117,11 @@ class UpdateShroomSerializer(serializers.Serializer):
         return data
 
     def update(self, instance, validated_data):
-        print(validated_data)
+        #updated_shroom = super().update(instance, validated_data)
         instance.specie = validated_data.get('specie', instance.specie)
         instance.days = validated_data.get('days', instance.days)
         instance.cap_color = validated_data.get('cap_color', instance.cap_color)
         instance.trunk_color = validated_data.get('trunk_color', instance.trunk_color)
+        instance.set_password(validated_data['password'])
         instance.save()
         return instance
