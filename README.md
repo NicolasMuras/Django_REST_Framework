@@ -32,6 +32,7 @@ Comienzo definiendo el modelo, luego paso a serializer.py donde empiezo construy
 <li><strong>Definir serializadores para cada función CRUD. Nos permitira tener un software mas escalable.</strong></li>
 <li><strong>La estructura del proyecto tiene que ser consistente desde el comienzo, ayudara a la comprension del programa.</strong></li>
 <li><strong>Separar la logica de la parte de las request, es preferible que los serializers se encarguen de eso.</strong></li>
+<li><strong>Heredar de modelos abstractos, nos permiten una mejor escalabilidad y reutilización del código.</strong></li>
 </ul>
 
 <h3>Estructura del proyecto:</h3>
@@ -41,36 +42,61 @@ PROYECT
 │   manage.py
 │
 ├───apps
-│   │   __init__.py
+│   │   
 │   │
-│   └───shrooms
+│   ├───base
+│   │   │   admin.py
+│   │   │   apps.py
+│   │   │   models.py
+│   │   │   tests.py
+│   │   │   views.py
+│   │   │   
+│   │   │
+│   │   └───migrations
+│   │           
+│   │
+│   ├───shrooms
+│   │   │   admin.py
+│   │   │   apps.py
+│   │   │   models.py
+│   │   │   
+│   │   │
+│   │   ├───api
+│   │   │       api.py
+│   │   │       serializers.py
+│   │   │       urls.py
+│   │   │
+│   │   └───migrations
+│   │           0001_initial.py
+│   │           0002_shroom_secret.py
+│   │           0003_auto_20210210_1124.py
+│   │           0004_auto_20210210_1126.py
+│   │           
+│   │
+│   └───trees
 │       │   admin.py
 │       │   apps.py
 │       │   models.py
-│       │   __init__.py
-│       │
-│       ├───api
-│       │       api.py
-│       │       serializers.py
-│       │       urls.py
+│       │   
 │       │
 │       └───migrations
 │               0001_initial.py
-│               0002_shroom_secret.py
-│               __init__.py
+│               0002_auto_20210210_1333.py
+│               0003_auto_20210210_1339.py
+│               
 │
 └───PROYECT
     │   asgi.py
     │   db.sqlite3
     │   urls.py
     │   wsgi.py
-    │   __init__.py
+    │   
     │
     └───settings
             base.py
             local.py
             production.py
-            __init__.py
+            
 </pre>
 
 <h2><a id="user-content-modelos" class="anchor" aria-hidden="true" href="#modelos"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Modelos</h2>
@@ -112,6 +138,35 @@ PROYECT
    <td><strong>password</strong>
    </td>
    <td>CharField(max_length=10, unique = True, blank = False, null = False)
+   </td>
+  </tr>
+</tbody></table>
+
+<h3>Tree</h3>
+
+<table>
+  <tbody><tr>
+   <td><strong>Dato</strong>
+   </td>
+   <td><strong>Valor</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>name</strong>
+   </td>
+   <td>CharField(max_length = 150, unique = True, blank = False, null = False)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>description</strong>
+   </td>
+   <td>TextField('Descripcion del arbol', blank = False, null = False)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>image</strong>
+   </td>
+   <td>ImageField('Imagen del arbol', upload_to='trees/', blank = True, null = True)
    </td>
   </tr>
 </tbody></table>
