@@ -30,7 +30,7 @@ Se empieza definiendo una estructura solida para el proyecto, la idea es organiz
 <ul>
 <li><strong>Definir serializadores para cada función CRUD. Nos permitira tener un software mas escalable.</strong></li>
 <li><strong>La estructura del proyecto tiene que ser consistente desde el comienzo, ayudara a la comprension del programa.</strong></li>
-<li><strong>Separar la logica de la parte de las request, es preferible que los serializers se encarguen de eso.</strong></li>
+<li><strong>Separar la logica de las views, es preferible que los serializers se encarguen de eso.</strong></li>
 <li><strong>Heredar de modelos y serializadores abstractos, nos permiten una mejor escalabilidad y reutilización del código.</strong></li>
 </ul>
 
