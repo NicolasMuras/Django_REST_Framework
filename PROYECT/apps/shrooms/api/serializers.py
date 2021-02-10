@@ -4,6 +4,10 @@ from apps.shrooms.models import Shroom
 #############################################[  GLOBALS  ]############################################
 
 colors = ['Red', 'Orange', 'Blue', 'Yellow', 'White', 'Green', 'Gray', 'Black', 'Cyan']
+BLANK_SPACE = 'Espacio vacio.'
+INVALID_COLOR = 'Color invalido.'
+INVALID_SPECIE = 'Especie invalida.'
+INVALID_RANGE = 'El numero esta fuera del rango permitido.'
 
 ##############################################[  MAIN  ]##############################################
 
@@ -41,29 +45,29 @@ class CreateShroomSerializer(serializers.Serializer):
     def validate_specie(self, value):
         # custom validation
         if value == '':
-            raise serializers.ValidationError('El campo esta vacio.')
+            raise serializers.ValidationError(BLANK_SPACE)
 
         if 'Shroom' in value:
-            raise serializers.ValidationError('Especie invalida.')
+            raise serializers.ValidationError(INVALID_SPECIE)
 
         return value
 
     def validate_days(self, value):
         # custom validation
         if value > 55 or value < 0:
-            raise serializers.ValidationError('El rango de dias es invalido')
+            raise serializers.ValidationError(INVALID_RANGE)
 
         return value
 
     def validate_cap_color(self, value):
         if value in colors:
             return value
-        raise serializers.ValidationError('Color invalido.')
+        raise serializers.ValidationError(INVALID_COLOR)
 
     def validate_trunk_color(self, value):
         if value in colors:
             return value
-        raise serializers.ValidationError('Color invalido.')
+        raise serializers.ValidationError(INVALID_COLOR)
 
     def validate(self, data):
         return data
@@ -83,34 +87,31 @@ class UpdateShroomSerializer(serializers.Serializer):
 
     def validate_specie(self, value):
         if value == '':
-            raise serializers.ValidationError('El campo esta vacio.')
+            raise serializers.ValidationError(BLANK_SPACE)
 
         if 'Shroom' in value:
-            raise serializers.ValidationError('Especie invalida.')
+            raise serializers.ValidationError(INVALID_SPECIE)
 
         return value
 
     def validate_days(self, value):
         # custom validation
         if value > 55 or value < 0:
-            raise serializers.ValidationError('El rango de dias es invalido')
+            raise serializers.ValidationError(INVALID_RANGE)
         
         return value
 
     def validate_cap_color(self, value):
-        print(value)
         if value in colors:
             return value
-        raise serializers.ValidationError('Color invalido.')
+        raise serializers.ValidationError(INVALID_COLOR)
 
     def validate_trunk_color(self, value):
-        print(value)
         if value in colors:
             return value
-        raise serializers.ValidationError('Color invalido.')
+        raise serializers.ValidationError(INVALID_COLOR)
 
     def validate(self, data):
-        print(data)
         return data
 
     def update(self, instance, validated_data):
