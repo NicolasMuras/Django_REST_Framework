@@ -39,7 +39,6 @@ Comienzo definiendo el modelo, luego paso a serializer.py donde empiezo construy
 
 <pre>
 PROYECT
-C:.
 │   manage.py
 │
 ├───apps
