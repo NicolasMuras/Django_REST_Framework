@@ -32,31 +32,58 @@ Comienzo definiendo el modelo, luego paso a serializer.py donde empiezo construy
 <li><strong>Definir serializadores para cada función CRUD. Nos permitira tener un software mas escalable.</strong></li>
 <li><strong>La estructura del proyecto tiene que ser consistente desde el comienzo, ayudara a la comprension del programa.</strong></li>
 <li><strong>Separar la logica de la parte de las request, es preferible que los serializers se encarguen de eso.</strong></li>
+<li><strong>Heredar de modelos abstractos, nos permiten una mejor escalabilidad y reutilización del código.</strong></li>
 </ul>
 
 <h3>Estructura del proyecto:</h3>
 
 <pre>
 PROYECT
+C:.
 │   manage.py
 │
 ├───apps
 │   │   __init__.py
 │   │
-│   └───shrooms
+│   ├───base
+│   │   │   admin.py
+│   │   │   apps.py
+│   │   │   models.py
+│   │   │   tests.py
+│   │   │   views.py
+│   │   │   __init__.py
+│   │   │
+│   │   └───migrations
+│   │           __init__.py
+│   │
+│   ├───shrooms
+│   │   │   admin.py
+│   │   │   apps.py
+│   │   │   models.py
+│   │   │   __init__.py
+│   │   │
+│   │   ├───api
+│   │   │       api.py
+│   │   │       serializers.py
+│   │   │       urls.py
+│   │   │
+│   │   └───migrations
+│   │           0001_initial.py
+│   │           0002_shroom_secret.py
+│   │           0003_auto_20210210_1124.py
+│   │           0004_auto_20210210_1126.py
+│   │           __init__.py
+│   │
+│   └───trees
 │       │   admin.py
 │       │   apps.py
 │       │   models.py
 │       │   __init__.py
 │       │
-│       ├───api
-│       │       api.py
-│       │       serializers.py
-│       │       urls.py
-│       │
 │       └───migrations
 │               0001_initial.py
-│               0002_shroom_secret.py
+│               0002_auto_20210210_1333.py
+│               0003_auto_20210210_1339.py
 │               __init__.py
 │
 └───PROYECT
